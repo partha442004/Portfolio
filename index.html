@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parthasarathi B | Cybersecurity Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 60px 0; text-align: center; border-bottom: 2px solid #0f3460; }
+        header h1 { font-size: 2.5rem; color: #00d4ff; margin-bottom: 10px; }
+        header p { font-size: 1.1rem; color: #a0a0a0; }
+        .contact-links { margin-top: 20px; }
+        .contact-links a { color: #00d4ff; text-decoration: none; margin: 0 15px; font-size: 0.95rem; }
+        .contact-links a:hover { text-decoration: underline; }
+
+        /* Sections */
+        section { padding: 40px 0; }
+        section h2 { color: #00d4ff; font-size: 1.8rem; margin-bottom: 25px; border-bottom: 2px solid #1a1a2e; padding-bottom: 10px; }
+
+        /* Skills */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .skill-card { background: #1a1a2e; padding: 20px; border-radius: 8px; border-left: 4px solid #00d4ff; }
+        .skill-card h3 { color: #00d4ff; margin-bottom: 10px; font-size: 1rem; }
+        .skill-card p { color: #a0a0a0; font-size: 0.9rem; }
+
+        /* Projects */
+        .project-card { background: #1a1a2e; padding: 25px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #e94560; }
+        .project-card h3 { color: #e94560; margin-bottom: 10px; }
+        .project-card .meta { color: #a0a0a0; font-size: 0.85rem; margin-bottom: 15px; }
+        .project-card ul { list-style: none; padding-left: 0; }
+        .project-card li { padding: 5px 0; color: #c0c0c0; font-size: 0.9rem; }
+        .project-card li::before { content: "▹ "; color: #00d4ff; }
+        .report-link { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #e94560; color: white; text-decoration: none; border-radius: 5px; font-size: 0.9rem; }
+        .report-link:hover { background: #c73e54; }
+
+        /* Labs */
+        .labs-list { list-style: none; }
+        .labs-list li { padding: 12px 0; border-bottom: 1px solid #1a1a2e; color: #c0c0c0; }
+        .labs-list li::before { content: "✓ "; color: #00d4ff; font-weight: bold; }
+
+        /* Stats */
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; text-align: center; }
+        .stat-item { background: #1a1a2e; padding: 20px; border-radius: 8px; }
+        .stat-number { font-size: 2rem; color: #00d4ff; font-weight: bold; }
+        .stat-label { color: #a0a0a0; font-size: 0.85rem; margin-top: 5px; }
+
+        /* Footer */
+        footer { background: #1a1a2e; padding: 30px 0; text-align: center; margin-top: 40px; }
+        footer p { color: #a0a0a0; font-size: 0.85rem; }
+        footer a { color: #00d4ff; text-decoration: none; }
+
+        /* Buttons */
+        .btn { display: inline-block; padding: 12px 25px; margin: 5px; border-radius: 5px; text-decoration: none; font-size: 0.9rem; }
+        .btn-primary { background: #00d4ff; color: #0a0a0a; }
+        .btn-secondary { background: transparent; color: #00d4ff; border: 2px solid #00d4ff; }
+        .btn:hover { opacity: 0.9; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>PARTHASARATHI B</h1>
+        <p>Cybersecurity Enthusiast | VAPT | Ethical Hacking</p>
+        <div class="contact-links">
+            <a href="mailto:parthasarathi442004@gmail.com">Email</a>
+            <a href="https://linkedin.com/in/parthasarathi-b-24b986267">LinkedIn</a>
+            <a href="https://github.com/partha442004">GitHub</a>
+            <a href="https://tryhackme.com/p/parthasarathi442">TryHackMe</a>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <h2>About Me</h2>
+        <p>Disciplined and motivated IT graduate with NCC background and CEH/CSA training. Strong interest in cybersecurity with proficiency in vulnerability assessment, OWASP Top 10, and exploitation using Kali Linux, Nmap, Nessus, Metasploit, and Burp Suite. Hands-on experience with Metasploitable 2, DVWA, and PortSwigger labs.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Stats</h2>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">122</div>
+                <div class="stat-label">Vulnerabilities Found</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Security Tools</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">CEH</div>
+                <div class="stat-label">In Progress</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Vulnerability Assessment</h3>
+                <p>Nessus, OpenVAS, CVSS Scoring, Risk Rating</p>
+            </div>
+            <div class="skill-card">
+                <h3>Penetration Testing</h3>
+                <p>Network Pentesting, Web App Testing, OWASP Top 10, Exploitation</p>
+            </div>
+            <div class="skill-card">
+                <h3>Security Tools</h3>
+                <p>Nmap, Metasploit, Burp Suite, Wireshark, Kali Linux, Hydra, OWASP ZAP</p>
+            </div>
+            <div class="skill-card">
+                <h3>Reconnaissance</h3>
+                <p>Passive Recon, Active Recon, Google Dorks, Shodan</p>
+            </div>
+            <div class="skill-card">
+                <h3>Privilege Escalation</h3>
+                <p>Linux Privesc, Windows Privesc, SUID Exploits</p>
+            </div>
+            <div class="skill-card">
+                <h3>Web Security</h3>
+                <p>SQL Injection, XSS, CSRF, SSRF, Command Injection</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Projects</h2>
+
+        <div class="project-card">
+            <h3>Vulnerability Assessment Report</h3>
+            <div class="meta">Metasploitable (192.168.1.82) | February 2026 | Nessus Scanner</div>
+            <ul>
+                <li>Conducted comprehensive VA using Nessus Scanner, identified 122 vulnerabilities</li>
+                <li>7 Critical, 4 High, 15 Medium, 8 Low, 88 Informational findings</li>
+                <li>Critical findings: VNC weak password (CVSS 10.0), UnrealIRCd backdoor (CVE-2010-2075), phpMyAdmin SQLi (CVE-2019-11768)</li>
+                <li>Generated professional report with executive summary, CVSS scoring, and remediation recommendations</li>
+            </ul>
+            <a href="https://github.com/partha442004/Cybersecurity-Projects/blob/main/Vulnerability_Assessment_Report.pdf" class="report-link" target="_blank">View Report</a>
+        </div>
+
+        <div class="project-card">
+            <h3>Penetration Testing Report</h3>
+            <div class="meta">Metasploitable 2 (192.168.1.68) | May 2026 | Nmap, Netcat</div>
+            <ul>
+                <li>Performed reconnaissance using Nmap, identified 7 open ports and running services</li>
+                <li>Exploited bindshell on port 1524 using Netcat, gained unauthenticated root access</li>
+                <li>Identified 5 vulnerabilities: 3 Critical (Bindshell, vsftpd backdoor, UnrealIRCd), 2 High (Samba RCE, Tomcat defaults)</li>
+                <li>Full assessment following industry methodology: Reconnaissance, Exploitation, Post-Exploitation</li>
+            </ul>
+            <a href="https://github.com/partha442004/Cybersecurity-Projects/blob/main/Pentest_Report_Filled.pdf" class="report-link" target="_blank">View Report</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Hands-On Labs</h2>
+        <ul class="labs-list">
+            <li>Network Vulnerability Assessment using Nessus and Nmap on Metasploitable 2</li>
+            <li>Web Application Security Testing on DVWA using Burp Suite and OWASP ZAP</li>
+            <li>SQL Injection labs on PortSwigger Web Security Academy (UNION-based, error-based, blind)</li>
+            <li>Penetration Testing on Metasploitable 2 with root compromise via bindshell exploitation</li>
+            <li>OWASP Juice Shop exploitation covering OWASP Top 10 vulnerabilities</li>
+            <li>Home Lab setup with Kali Linux, Metasploitable 2, and DVWA using VirtualBox</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Certifications</h2>
+        <div class="project-card" style="border-left-color: #00d4ff;">
+            <h3 style="color: #00d4ff;">CEH v13 with AI & SOC Analyst Training</h3>
+            <div class="meta">In Progress | TechByHeart Academy</div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Education</h2>
+        <div class="project-card" style="border-left-color: #00d4ff;">
+            <h3 style="color: #00d4ff;">B.Tech in Information Technology</h3>
+            <div class="meta">2021 - 2025 | Mahendra Engineering College, Salem | CGPA: 6.75/10</div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Connect</h2>
+        <div style="text-align: center;">
+            <a href="mailto:parthasarathi442004@gmail.com" class="btn btn-primary">Email Me</a>
+            <a href="https://linkedin.com/in/parthasarathi-b-24b986267" class="btn btn-secondary" target="_blank">LinkedIn</a>
+            <a href="https://github.com/partha442004" class="btn btn-secondary" target="_blank">GitHub</a>
+            <a href="https://tryhackme.com/p/parthasarathi442" class="btn btn-secondary" target="_blank">TryHackMe</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Parthasarathi B. Built with passion for cybersecurity.</p>
+    </div>
+</footer>
+
+</body>
+</html>
