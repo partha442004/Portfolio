@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dnyaneshwari Vanjari | Data Analyst Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #06b6d4;
+            --bg: #0f172a;
+            --bg-card: #1e293b;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav .nav-links a:hover { color: var(--accent); }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background: radial-gradient(ellipse at top, rgba(37, 99, 235, 0.15), transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+        .btn-outline {
+            border: 2px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .section-line {
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+            margin-bottom: 3rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.1);
+        }
+
+        .skill-card .icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .skill-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.1);
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(37, 99, 235, 0.15);
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .project-card ul {
+            margin-top: 1rem;
+            padding-left: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .project-card ul li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Education */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--bg);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .timeline-item .year {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Certificates */
+        .cert-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .cert-item:hover { border-color: var(--accent); }
+
+        .cert-item .cert-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .cert-item h4 { font-size: 1rem; color: #fff; }
+        .cert-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* Contact */
+        .contact-content {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .contact-link .link-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-link span { font-size: 0.95rem; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav .nav-links { gap: 1rem; }
+            nav .nav-links a { font-size: 0.85rem; }
+            section { padding: 3rem 1.5rem; }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate { animation: fadeInUp 0.6s ease forwards; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">DV</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="animate">
+            <h1>Dnyaneshwari Vanjari</h1>
+            <p class="subtitle">Data Analyst | Turning Data Into Insights</p>
+            <p class="tagline">
+                Motivated Data Analyst with strong skills in Python, SQL, Excel, and data visualization tools. 
+                Experienced in cleaning, analysing, and interpreting data to uncover meaningful insights and 
+                support business decisions.
+            </p>
+            <div class="hero-links">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+                <a href="https://www.linkedin.com/in/dnyaneshwari-vanjari" target="_blank" class="btn btn-outline">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="section-line"></div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="icon">&#128202;</div>
+                <h3>Advanced Excel</h3>
+                <p>Conditional Formatting, VLOOKUP, HLOOKUP, XLOOKUP, INDEX + MATCH, SUMIFS, COUNTIFS, IF, IFS, DATE Functions, Pivot Table, Pivot Chart.</p>
+            </div>
+            <div class="skill-card">
+                <div class="icon">&#128451;</div>
+                <h3>SQL</h3>
+                <p>DDL, DML, DQL, Limit, Offset, Views, Aggregate Functions, Joins, Subqueries, Window Functions, Data Manipulation, Constraints, Normalization.</p>
+            </div>
+            <div class="skill-card">
+                <div class="icon">&#128200;</div>
+                <h3>Power BI</h3>
+                <p>KPI Dashboards, Measures and Calculated Columns, Data Cleaning, Data Transformation, Data Visualization, DAX, Power Query.</p>
+            </div>
+            <div class="skill-card">
+                <div class="icon">&#128013;</div>
+                <h3>Python</h3>
+                <p>Variables & Data Types, Operators, Conditional Statements, Loops, Functions, Lambda, OOPs, Modules, Exception Handling, File Handling, Regex, Web Scraping.</p>
+            </div>
+            <div class="skill-card">
+                <div class="icon">&#128187;</div>
+                <h3>Tools</h3>
+                <p>Microsoft Excel, Microsoft Power BI, MySQL Workbench, Jupyter Notebook.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="section-line"></div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Pizza Sales Dashboard</h3>
+                <div class="project-tags">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">DAX</span>
+                    <span class="tag">Power Query</span>
+                </div>
+                <p>Built an interactive dashboard using Power BI, DAX, and Power Query to analyse Pizza's sales performance.</p>
+                <ul>
+                    <li>Visualized total sales, best and worst selling items</li>
+                    <li>Analyzed customers purchase trends and store operation insights</li>
+                    <li>Provided category-level data to support data-driven decisions</li>
+                </ul>
+            </div>
+            <div class="project-card">
+                <h3>Employee Salary System</h3>
+                <div class="project-tags">
+                    <span class="tag">MySQL</span>
+                    <span class="tag">SQL Queries</span>
+                </div>
+                <p>Successfully provides an automated salary management solution using MySQL.</p>
+                <ul>
+                    <li>Improves efficiency in salary processing</li>
+                    <li>Streamlines employee data management</li>
+                    <li>Enhances organizational workflow automation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="section-line"></div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Bachelor of Engineering - Computer Science</h3>
+                <span class="year">2022 - 2026 | CGPA (7th Sem): 8.65</span>
+                <p>Keystone School of Engineering, Pune</p>
+            </div>
+            <div class="timeline-item">
+                <h3>HSC (Higher Secondary Certificate)</h3>
+                <span class="year">2020 - 2021 | 82.00%</span>
+                <p>Navajivan Vidyalaya, Dahigoan-Ne</p>
+            </div>
+            <div class="timeline-item">
+                <h3>SSC (Secondary School Certificate)</h3>
+                <span class="year">2019 - 2020 | 89.40%</span>
+                <p>Navajivan Vidyalaya, Dahigoan-Ne</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates -->
+    <section id="certificates">
+        <h2 class="section-title">Certificates</h2>
+        <div class="section-line"></div>
+        <div class="cert-list">
+            <div class="cert-item">
+                <div class="cert-icon">&#127942;</div>
+                <div>
+                    <h4>Certificate of Advanced Excel</h4>
+                    <p>I.T. Vedant</p>
+                </div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">&#127942;</div>
+                <div>
+                    <h4>Certificate of SQL Mastery</h4>
+                    <p>I.T. Vedant</p>
+                </div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">&#127942;</div>
+                <div>
+                    <h4>Certificate of Power BI Essentials</h4>
+                    <p>I.T. Vedant</p>
+                </div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">&#127942;</div>
+                <div>
+                    <h4>Certificate of Python</h4>
+                    <p>Masterclass on Road to Code</p>
+                </div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">&#127942;</div>
+                <div>
+                    <h4>Rotary Youth Leadership Award (RYLA)</h4>
+                    <p>Rotary Club of Pune Pristine</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="section-line"></div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <p>I'm open to opportunities and collaborations. Feel free to reach out!</p>
+                <div class="contact-links">
+                    <a href="mailto:vanjaridnyaneshwari246@gmail.com" class="contact-link">
+                        <div class="link-icon">&#9993;</div>
+                        <span>vanjaridnyaneshwari246@gmail.com</span>
+                    </a>
+                    <a href="tel:+919730556732" class="contact-link">
+                        <div class="link-icon">&#9742;</div>
+                        <span>+91 9730556732</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/dnyaneshwari-vanjari" target="_blank" class="contact-link">
+                        <div class="link-icon">&#128279;</div>
+                        <span>LinkedIn Profile</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Dnyaneshwari Vanjari. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
