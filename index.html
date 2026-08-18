@@ -3,611 +3,478 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dnyaneshwari Vanjari | Data Analyst Portfolio</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --accent: #06b6d4;
-            --bg: #0f172a;
-            --bg-card: #1e293b;
-            --text: #e2e8f0;
-            --text-muted: #94a3b8;
-            --border: #334155;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-        }
-
-        /* Navbar */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        nav .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        nav .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        nav .nav-links a:hover { color: var(--accent); }
-
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 6rem 2rem 4rem;
-            background: radial-gradient(ellipse at top, rgba(37, 99, 235, 0.15), transparent 60%);
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #fff, var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero .subtitle {
-            font-size: 1.3rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero .tagline {
-            font-size: 1.1rem;
-            color: var(--accent);
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-
-        .hero-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.75rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: #fff;
-        }
-
-        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
-
-        .btn-outline {
-            border: 2px solid var(--border);
-            color: var(--text);
-        }
-
-        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        .section-line {
-            width: 60px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 2px;
-            margin-bottom: 3rem;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s;
-        }
-
-        .skill-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.1);
-        }
-
-        .skill-card .icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(6, 182, 212, 0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .skill-card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 0.75rem;
-            color: #fff;
-        }
-
-        .skill-card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2.5rem;
-            transition: all 0.3s;
-        }
-
-        .project-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.1);
-        }
-
-        .project-card h3 {
-            font-size: 1.3rem;
-            color: #fff;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            padding: 0.25rem 0.75rem;
-            background: rgba(37, 99, 235, 0.15);
-            color: var(--accent);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .project-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .project-card ul {
-            margin-top: 1rem;
-            padding-left: 1.2rem;
-            color: var(--text-muted);
-        }
-
-        .project-card ul li {
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        /* Education */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--border);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.5rem;
-            padding-left: 1.5rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2rem;
-            top: 6px;
-            width: 12px;
-            height: 12px;
-            background: var(--accent);
-            border-radius: 50%;
-            border: 3px solid var(--bg);
-        }
-
-        .timeline-item h3 {
-            font-size: 1.1rem;
-            color: #fff;
-        }
-
-        .timeline-item .year {
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .timeline-item p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Certificates */
-        .cert-list {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .cert-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.25rem 1.5rem;
-            transition: all 0.3s;
-        }
-
-        .cert-item:hover { border-color: var(--accent); }
-
-        .cert-item .cert-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(6, 182, 212, 0.1);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 1.2rem;
-        }
-
-        .cert-item h4 { font-size: 1rem; color: #fff; }
-        .cert-item p { font-size: 0.85rem; color: var(--text-muted); }
-
-        /* Contact */
-        .contact-content {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-info {
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .contact-info p {
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: var(--text);
-            text-decoration: none;
-            padding: 1rem 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            transition: all 0.3s;
-        }
-
-        .contact-link:hover {
-            border-color: var(--accent);
-            transform: translateX(5px);
-        }
-
-        .contact-link .link-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(6, 182, 212, 0.1);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .contact-link span { font-size: 0.95rem; }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            nav .nav-links { gap: 1rem; }
-            nav .nav-links a { font-size: 0.85rem; }
-            section { padding: 3rem 1.5rem; }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate { animation: fadeInUp 0.6s ease forwards; }
-    </style>
+    <title>Parthasarathi B | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Theme Switcher -->
+    <div id="theme-switcher">
+        <button id="btn-minecraft" class="theme-btn active" title="Minecraft Theme">
+            <span class="theme-icon">⛏️</span>
+            <span class="theme-label">Minecraft</span>
+        </button>
+        <button id="btn-gta" class="theme-btn" title="GTA 6 Theme">
+            <span class="theme-icon">🔫</span>
+            <span class="theme-label">GTA 6</span>
+        </button>
+    </div>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="logo">DV</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- ==================== MINECRAFT THEME ==================== -->
+    <div id="minecraft-theme" class="theme active">
+        <!-- Hotbar Navigation -->
+        <nav id="minecraft-hotbar">
+            <div class="hotbar-slots">
+                <button class="hotbar-slot active" data-section="home" title="Home">
+                    <div class="slot-icon">🏠</div>
+                    <span class="slot-label">Home</span>
+                    <span class="slot-key">1</span>
+                </button>
+                <button class="hotbar-slot" data-section="skills" title="Skills">
+                    <div class="slot-icon">✨</div>
+                    <span class="slot-label">Skills</span>
+                    <span class="slot-key">2</span>
+                </button>
+                <button class="hotbar-slot" data-section="projects" title="Projects">
+                    <div class="slot-icon">📦</div>
+                    <span class="slot-label">Projects</span>
+                    <span class="slot-key">3</span>
+                </button>
+                <button class="hotbar-slot" data-section="about" title="About">
+                    <div class="slot-icon">📖</div>
+                    <span class="slot-label">About</span>
+                    <span class="slot-key">4</span>
+                </button>
+                <button class="hotbar-slot" data-section="contact" title="Contact">
+                    <div class="slot-icon">✉️</div>
+                    <span class="slot-label">Contact</span>
+                    <span class="slot-key">5</span>
+                </button>
+            </div>
+        </nav>
 
-    <!-- Hero -->
-    <section class="hero" id="home">
-        <div class="animate">
-            <h1>Dnyaneshwari Vanjari</h1>
-            <p class="subtitle">Data Analyst | Turning Data Into Insights</p>
-            <p class="tagline">
-                Motivated Data Analyst with strong skills in Python, SQL, Excel, and data visualization tools. 
-                Experienced in cleaning, analysing, and interpreting data to uncover meaningful insights and 
-                support business decisions.
-            </p>
-            <div class="hero-links">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
-                <a href="https://www.linkedin.com/in/dnyaneshwari-vanjari" target="_blank" class="btn btn-outline">LinkedIn</a>
+        <!-- Home Section -->
+        <section id="mc-home" class="mc-section active">
+            <div class="mc-home-container">
+                <div class="mc-player-card">
+                    <div class="mc-avatar">
+                        <div class="mc-skin"></div>
+                    </div>
+                    <div class="mc-player-info">
+                        <h1 class="mc-name">Parthasarathi B</h1>
+                        <p class="mc-tagline">"Cybersecurity • VAPT • SOC" 🛡️</p>
+                        <div class="mc-stats">
+                            <div class="mc-stat">
+                                <span class="stat-label">Repos</span>
+                                <span class="stat-value">7</span>
+                            </div>
+                            <div class="mc-stat">
+                                <span class="stat-label">Followers</span>
+                                <span class="stat-value">1</span>
+                            </div>
+                            <div class="mc-stat">
+                                <span class="stat-label">Level</span>
+                                <span class="stat-value">50</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mc-xp-bar">
+                    <div class="mc-xp-fill" style="width: 85%"></div>
+                    <span class="mc-xp-text">Level 50 — 85% to next level</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section (Enchantment Table) -->
+        <section id="mc-skills" class="mc-section">
+            <div class="mc-container">
+                <h2 class="mc-title">
+                    <span class="title-icon">✨</span>
+                    Enchantment Table
+                    <span class="title-icon">✨</span>
+                </h2>
+                <p class="mc-subtitle">Place skills in the enchantment slots to power up!</p>
+                
+                <div class="mc-enchant-table">
+                    <div class="enchant-bookshelf">
+                        <div class="bookshelf-row">
+                            <div class="book">📕</div>
+                            <div class="book">📗</div>
+                            <div class="book">📘</div>
+                            <div class="book">📙</div>
+                            <div class="book">📕</div>
+                        </div>
+                        <div class="bookshelf-row">
+                            <div class="book">📗</div>
+                            <div class="book">📘</div>
+                            <div class="book">📙</div>
+                            <div class="book">📕</div>
+                            <div class="book">📗</div>
+                        </div>
+                    </div>
+                    
+                    <div class="enchant-table-top">
+                        <div class="enchant-pedestal">
+                            <div class="enchant-glyphs">ƛзиuiltяαηcybersecurity</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-slots">
+                        <div class="enchant-slot" data-skill="cybersecurity" data-level="10">
+                            <div class="slot-glow"></div>
+                            <span class="skill-icon">🛡️</span>
+                            <span class="skill-name">Cybersecurity</span>
+                            <span class="skill-level">Level X</span>
+                        </div>
+                        <div class="enchant-slot" data-skill="vapt" data-level="10">
+                            <div class="slot-glow"></div>
+                            <span class="skill-icon">🔍</span>
+                            <span class="skill-name">VAPT</span>
+                            <span class="skill-level">Level X</span>
+                        </div>
+                        <div class="enchant-slot" data-skill="soc" data-level="10">
+                            <div class="slot-glow"></div>
+                            <span class="skill-icon">📡</span>
+                            <span class="skill-name">SOC</span>
+                            <span class="skill-level">Level X</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (Chest) -->
+        <section id="mc-projects" class="mc-section">
+            <div class="mc-container">
+                <h2 class="mc-title">
+                    <span class="title-icon">📦</span>
+                    Chest — Projects
+                    <span class="title-icon">📦</span>
+                </h2>
+                <p class="mc-subtitle">Open the chest to discover what's inside!</p>
+
+                <div class="mc-chest" id="mc-chest">
+                    <div class="chest-lid">
+                        <div class="chest-lock"></div>
+                    </div>
+                    <div class="chest-body">
+                        <div class="chest-inventory">
+                            <div class="chest-slot" data-project="cyberguide">
+                                <div class="slot-glow"></div>
+                                <span class="item-icon">🤖</span>
+                                <span class="item-name">CyberGuide</span>
+                                <span class="item-desc">Python • AI • MIT</span>
+                            </div>
+                            <div class="chest-slot" data-project="web-attack">
+                                <div class="slot-glow"></div>
+                                <span class="item-icon">⚔️</span>
+                                <span class="item-name">web-attack-academy</span>
+                                <span class="item-desc">JavaScript</span>
+                            </div>
+                            <div class="chest-slot" data-project="osint-locator">
+                                <div class="slot-glow"></div>
+                                <span class="item-icon">📍</span>
+                                <span class="item-name">osint-locator</span>
+                                <span class="item-desc">Python</span>
+                            </div>
+                            <div class="chest-slot" data-project="gaming-bot">
+                                <div class="slot-glow"></div>
+                                <span class="item-icon">🎮</span>
+                                <span class="item-name">gaming-discord-bot</span>
+                                <span class="item-desc">JavaScript</span>
+                            </div>
+                            <div class="chest-slot" data-project="cyber-projects">
+                                <div class="slot-glow"></div>
+                                <span class="item-icon">🔐</span>
+                                <span class="item-name">Cybersecurity-Projects</span>
+                                <span class="item-desc">VAPT Reports</span>
+                            </div>
+                            <div class="chest-slot" data-project="profile">
+                                <div class="slot-glow"></div>
+                                <span class="item-icon">👤</span>
+                                <span class="item-name">partha442004</span>
+                                <span class="item-desc">Profile README</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Detail Modal -->
+                <div id="project-modal" class="mc-modal hidden">
+                    <div class="modal-content">
+                        <button class="modal-close">&times;</button>
+                        <div class="modal-icon" id="modal-icon"></div>
+                        <h3 class="modal-title" id="modal-title"></h3>
+                        <p class="modal-desc" id="modal-desc"></p>
+                        <div class="modal-tags" id="modal-tags"></div>
+                        <a href="#" class="modal-link" id="modal-link" target="_blank">
+                            <span>Open in Browser</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="mc-about" class="mc-section">
+            <div class="mc-container">
+                <h2 class="mc-title">
+                    <span class="title-icon">📖</span>
+                    Written Book
+                    <span class="title-icon">📖</span>
+                </h2>
+                <div class="mc-written-book">
+                    <div class="book-page">
+                        <div class="page-content">
+                            <h3>About Me</h3>
+                            <p>Hey! I'm <strong>Parthasarathi B</strong> 🇮🇳</p>
+                            <p>Cybersecurity enthusiast & AI explorer. I build tools that make the digital world safer — from OSINT locators to career intelligence platforms.</p>
+                            <p>Currently working on <strong>CyberGuide</strong> — a career intelligence platform with 17+ scrapers, AI job matching, and 2040 tests at 99% coverage. Deployed on Vercel + Neon.</p>
+                            <div class="book-divider">~~~~~~~~~~~~~~~~</div>
+                            <h3>What I Do</h3>
+                            <p>🛡️ <strong>Cybersecurity</strong> — Threat analysis, incident response, security monitoring</p>
+                            <p>🔍 <strong>VAPT</strong> — Vulnerability Assessment & Penetration Testing</p>
+                            <p>📡 <strong>SOC</strong> — Security Operations Center, SIEM, log analysis</p>
+                            <p>Always learning, always breaking & building. 🚀</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="mc-contact" class="mc-section">
+            <div class="mc-container">
+                <h2 class="mc-title">
+                    <span class="title-icon">✉️</span>
+                    Ender Portal — Contact
+                    <span class="title-icon">✉️</span>
+                </h2>
+                <div class="mc-ender-portal">
+                    <div class="portal-frame">
+                        <div class="portal-swirl"></div>
+                        <div class="portal-center">
+                            <a href="https://github.com/partha442004" target="_blank" class="contact-link">
+                                <span class="contact-icon">🐙</span>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://github.com/partha442004" target="_blank" class="contact-link">
+                                <span class="contact-icon">🌐</span>
+                                <span>Profile</span>
+                            </a>
+                            <a href="mailto:parthasarathi442004@gmail.com" class="contact-link">
+                                <span class="contact-icon">📧</span>
+                                <span>Email</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== GTA 6 THEME ==================== -->
+    <div id="gta-theme" class="theme">
+        <!-- GTA Pause Menu -->
+        <div class="gta-pause-menu">
+            <div class="gta-header">
+                <div class="gta-logo">
+                    <span class="gta-vi">VI</span>
+                </div>
+                <div class="gta-title">PORTFOLIO</div>
+            </div>
+
+            <nav class="gta-nav">
+                <button class="gta-nav-item active" data-gta-section="gta-home">
+                    <span class="gta-nav-text">HOME</span>
+                    <span class="gta-nav-arrow">›</span>
+                </button>
+                <button class="gta-nav-item" data-gta-section="gta-skills">
+                    <span class="gta-nav-text">SKILLS</span>
+                    <span class="gta-nav-arrow">›</span>
+                </button>
+                <button class="gta-nav-item" data-gta-section="gta-projects">
+                    <span class="gta-nav-text">PROJECTS</span>
+                    <span class="gta-nav-arrow">›</span>
+                </button>
+                <button class="gta-nav-item" data-gta-section="gta-about">
+                    <span class="gta-nav-text">ABOUT</span>
+                    <span class="gta-nav-arrow">›</span>
+                </button>
+                <button class="gta-nav-item" data-gta-section="gta-contact">
+                    <span class="gta-nav-text">CONTACT</span>
+                    <span class="gta-nav-arrow">›</span>
+                </button>
+            </nav>
+
+            <!-- GTA Sections -->
+            <div id="gta-home" class="gta-section active">
+                <div class="gta-content">
+                    <div class="gta-player-card">
+                        <div class="gta-portrait">
+                            <div class="gta-portrait-frame">
+                                <span class="gta-portrait-letter">P</span>
+                            </div>
+                        </div>
+                        <div class="gta-player-details">
+                            <h1 class="gta-player-name">PARTHASARATHI B</h1>
+                            <p class="gta-player-tagline">Cybersecurity • VAPT • SOC</p>
+                            <div class="gta-wanted-stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                            </div>
+                            <p class="gta-location">📍 India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gta-skills" class="gta-section">
+                <div class="gta-content">
+                    <h2 class="gta-section-title">SKILL TREE</h2>
+                    <div class="gta-skill-grid">
+                        <div class="gta-skill-card" data-level="100">
+                            <div class="gta-skill-bar"><div class="gta-skill-fill" style="width: 100%"></div></div>
+                            <span class="gta-skill-name">CYBERSECURITY</span>
+                            <span class="gta-skill-level">100%</span>
+                        </div>
+                        <div class="gta-skill-card" data-level="100">
+                            <div class="gta-skill-bar"><div class="gta-skill-fill" style="width: 100%"></div></div>
+                            <span class="gta-skill-name">VAPT</span>
+                            <span class="gta-skill-level">100%</span>
+                        </div>
+                        <div class="gta-skill-card" data-level="100">
+                            <div class="gta-skill-bar"><div class="gta-skill-fill" style="width: 100%"></div></div>
+                            <span class="gta-skill-name">SOC</span>
+                            <span class="gta-skill-level">100%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gta-projects" class="gta-section">
+                <div class="gta-content">
+                    <h2 class="gta-section-title">MISSION LOG</h2>
+                    <div class="gta-missions">
+                        <div class="gta-mission">
+                            <div class="mission-status complete">✓</div>
+                            <div class="mission-info">
+                                <h3>CyberGuide</h3>
+                                <p>Career Intelligence Platform — 17+ scrapers, AI job matching, 2040 tests</p>
+                                <span class="mission-reward">+1000 XP</span>
+                            </div>
+                        </div>
+                        <div class="gta-mission">
+                            <div class="mission-status complete">✓</div>
+                            <div class="mission-info">
+                                <h3>web-attack-academy</h3>
+                                <p>Web attack learning platform</p>
+                                <span class="mission-reward">+500 XP</span>
+                            </div>
+                        </div>
+                        <div class="gta-mission">
+                            <div class="mission-status complete">✓</div>
+                            <div class="mission-info">
+                                <h3>osint-locator</h3>
+                                <p>OSINT location intelligence tool</p>
+                                <span class="mission-reward">+500 XP</span>
+                            </div>
+                        </div>
+                        <div class="gta-mission">
+                            <div class="mission-status complete">✓</div>
+                            <div class="mission-info">
+                                <h3>gaming-discord-bot</h3>
+                                <p>Gaming Discord bot</p>
+                                <span class="mission-reward">+400 XP</span>
+                            </div>
+                        </div>
+                        <div class="gta-mission">
+                            <div class="mission-status complete">✓</div>
+                            <div class="mission-info">
+                                <h3>Cybersecurity-Projects</h3>
+                                <p>VAPT Reports & Penetration Testing</p>
+                                <span class="mission-reward">+600 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gta-about" class="gta-section">
+                <div class="gta-content">
+                    <h2 class="gta-section-title">DOSSIER</h2>
+                    <div class="gta-dossier">
+                        <div class="dossier-field">
+                            <span class="dossier-label">NAME:</span>
+                            <span class="dossier-value">Parthasarathi B</span>
+                        </div>
+                        <div class="dossier-field">
+                            <span class="dossier-label">LOCATION:</span>
+                            <span class="dossier-value">India</span>
+                        </div>
+                        <div class="dossier-field">
+                            <span class="dossier-label">SPECIALTY:</span>
+                            <span class="dossier-value">Cybersecurity • VAPT • SOC</span>
+                        </div>
+                        <div class="dossier-field">
+                            <span class="dossier-label">TOP PROJECT:</span>
+                            <span class="dossier-value">CyberGuide — Career Intelligence Platform</span>
+                        </div>
+                        <div class="dossier-field">
+                            <span class="dossier-label">STATUS:</span>
+                            <span class="dossier-value active-status">ACTIVE — Building & Breaking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gta-contact" class="gta-section">
+                <div class="gta-content">
+                    <h2 class="gta-section-title">CONTACTS</h2>
+                    <div class="gta-contacts">
+                        <a href="https://github.com/partha442004" target="_blank" class="gta-contact-card">
+                            <span class="gta-contact-icon">🐙</span>
+                            <span class="gta-contact-name">GitHub</span>
+                            <span class="gta-contact-detail">@partha442004</span>
+                        </a>
+                        <a href="https://github.com/partha442004" target="_blank" class="gta-contact-card">
+                            <span class="gta-contact-icon">🌐</span>
+                            <span class="gta-contact-name">Profile</span>
+                            <span class="gta-contact-detail">partha442004</span>
+                        </a>
+                        <a href="mailto:parthasarathi442004@gmail.com" class="gta-contact-card">
+                            <span class="gta-contact-icon">📧</span>
+                            <span class="gta-contact-name">Email</span>
+                            <span class="gta-contact-detail">parthasarathi442004@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Skills -->
-    <section id="skills">
-        <h2 class="section-title">Skills</h2>
-        <div class="section-line"></div>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="icon">&#128202;</div>
-                <h3>Advanced Excel</h3>
-                <p>Conditional Formatting, VLOOKUP, HLOOKUP, XLOOKUP, INDEX + MATCH, SUMIFS, COUNTIFS, IF, IFS, DATE Functions, Pivot Table, Pivot Chart.</p>
+        <!-- GTA Stats Bar -->
+        <div class="gta-stats-bar">
+            <div class="gta-stat-item">
+                <span class="gta-stat-label">REPOS</span>
+                <span class="gta-stat-value">7</span>
             </div>
-            <div class="skill-card">
-                <div class="icon">&#128451;</div>
-                <h3>SQL</h3>
-                <p>DDL, DML, DQL, Limit, Offset, Views, Aggregate Functions, Joins, Subqueries, Window Functions, Data Manipulation, Constraints, Normalization.</p>
+            <div class="gta-stat-item">
+                <span class="gta-stat-label">WANTED</span>
+                <span class="gta-wanted-mini">★★★★★</span>
             </div>
-            <div class="skill-card">
-                <div class="icon">&#128200;</div>
-                <h3>Power BI</h3>
-                <p>KPI Dashboards, Measures and Calculated Columns, Data Cleaning, Data Transformation, Data Visualization, DAX, Power Query.</p>
-            </div>
-            <div class="skill-card">
-                <div class="icon">&#128013;</div>
-                <h3>Python</h3>
-                <p>Variables & Data Types, Operators, Conditional Statements, Loops, Functions, Lambda, OOPs, Modules, Exception Handling, File Handling, Regex, Web Scraping.</p>
-            </div>
-            <div class="skill-card">
-                <div class="icon">&#128187;</div>
-                <h3>Tools</h3>
-                <p>Microsoft Excel, Microsoft Power BI, MySQL Workbench, Jupyter Notebook.</p>
+            <div class="gta-stat-item">
+                <span class="gta-stat-label">LEVEL</span>
+                <span class="gta-stat-value">50</span>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Projects -->
-    <section id="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="section-line"></div>
-        <div class="projects-grid">
-            <div class="project-card">
-                <h3>Pizza Sales Dashboard</h3>
-                <div class="project-tags">
-                    <span class="tag">Power BI</span>
-                    <span class="tag">DAX</span>
-                    <span class="tag">Power Query</span>
-                </div>
-                <p>Built an interactive dashboard using Power BI, DAX, and Power Query to analyse Pizza's sales performance.</p>
-                <ul>
-                    <li>Visualized total sales, best and worst selling items</li>
-                    <li>Analyzed customers purchase trends and store operation insights</li>
-                    <li>Provided category-level data to support data-driven decisions</li>
-                </ul>
-            </div>
-            <div class="project-card">
-                <h3>Employee Salary System</h3>
-                <div class="project-tags">
-                    <span class="tag">MySQL</span>
-                    <span class="tag">SQL Queries</span>
-                </div>
-                <p>Successfully provides an automated salary management solution using MySQL.</p>
-                <ul>
-                    <li>Improves efficiency in salary processing</li>
-                    <li>Streamlines employee data management</li>
-                    <li>Enhances organizational workflow automation</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education">
-        <h2 class="section-title">Education</h2>
-        <div class="section-line"></div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <h3>Bachelor of Engineering - Computer Science</h3>
-                <span class="year">2022 - 2026 | CGPA (7th Sem): 8.65</span>
-                <p>Keystone School of Engineering, Pune</p>
-            </div>
-            <div class="timeline-item">
-                <h3>HSC (Higher Secondary Certificate)</h3>
-                <span class="year">2020 - 2021 | 82.00%</span>
-                <p>Navajivan Vidyalaya, Dahigoan-Ne</p>
-            </div>
-            <div class="timeline-item">
-                <h3>SSC (Secondary School Certificate)</h3>
-                <span class="year">2019 - 2020 | 89.40%</span>
-                <p>Navajivan Vidyalaya, Dahigoan-Ne</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certificates -->
-    <section id="certificates">
-        <h2 class="section-title">Certificates</h2>
-        <div class="section-line"></div>
-        <div class="cert-list">
-            <div class="cert-item">
-                <div class="cert-icon">&#127942;</div>
-                <div>
-                    <h4>Certificate of Advanced Excel</h4>
-                    <p>I.T. Vedant</p>
-                </div>
-            </div>
-            <div class="cert-item">
-                <div class="cert-icon">&#127942;</div>
-                <div>
-                    <h4>Certificate of SQL Mastery</h4>
-                    <p>I.T. Vedant</p>
-                </div>
-            </div>
-            <div class="cert-item">
-                <div class="cert-icon">&#127942;</div>
-                <div>
-                    <h4>Certificate of Power BI Essentials</h4>
-                    <p>I.T. Vedant</p>
-                </div>
-            </div>
-            <div class="cert-item">
-                <div class="cert-icon">&#127942;</div>
-                <div>
-                    <h4>Certificate of Python</h4>
-                    <p>Masterclass on Road to Code</p>
-                </div>
-            </div>
-            <div class="cert-item">
-                <div class="cert-icon">&#127942;</div>
-                <div>
-                    <h4>Rotary Youth Leadership Award (RYLA)</h4>
-                    <p>Rotary Club of Pune Pristine</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="section-line"></div>
-        <div class="contact-content">
-            <div class="contact-info">
-                <p>I'm open to opportunities and collaborations. Feel free to reach out!</p>
-                <div class="contact-links">
-                    <a href="mailto:vanjaridnyaneshwari246@gmail.com" class="contact-link">
-                        <div class="link-icon">&#9993;</div>
-                        <span>vanjaridnyaneshwari246@gmail.com</span>
-                    </a>
-                    <a href="tel:+919730556732" class="contact-link">
-                        <div class="link-icon">&#9742;</div>
-                        <span>+91 9730556732</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/dnyaneshwari-vanjari" target="_blank" class="contact-link">
-                        <div class="link-icon">&#128279;</div>
-                        <span>LinkedIn Profile</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Dnyaneshwari Vanjari. All rights reserved.</p>
-    </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>

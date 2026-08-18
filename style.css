@@ -1,0 +1,1210 @@
+/* ============================================
+   BASE STYLES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'VT323', monospace;
+    background: #1a1a2e;
+    color: #fff;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.theme {
+    display: none;
+    min-height: 100vh;
+}
+
+.theme.active {
+    display: block;
+}
+
+/* ============================================
+   THEME SWITCHER
+   ============================================ */
+#theme-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.theme-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.theme-btn.active {
+    background: #4CAF50;
+    border-color: #81C784;
+}
+
+.theme-icon {
+    font-size: 16px;
+}
+
+/* ============================================
+   MINECRAFT THEME
+   ============================================ */
+#minecraft-theme {
+    background: #87CEEB;
+    background-image: 
+        linear-gradient(180deg, #87CEEB 0%, #87CEEB 60%, #228B22 60%, #228B22 100%);
+    min-height: 100vh;
+    padding-bottom: 100px;
+}
+
+/* Minecraft Hotbar */
+#minecraft-hotbar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.hotbar-slots {
+    display: flex;
+    gap: 4px;
+    background: #373737;
+    padding: 6px;
+    border: 3px solid #1a1a1a;
+    border-radius: 2px;
+    box-shadow: 
+        inset 0 0 0 2px #555,
+        0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.hotbar-slot {
+    width: 60px;
+    height: 60px;
+    background: #8B8B8B;
+    border: 2px solid #555;
+    border-top-color: #aaa;
+    border-left-color: #aaa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.1s;
+    position: relative;
+}
+
+.hotbar-slot:hover {
+    background: #9B9B9B;
+}
+
+.hotbar-slot.active {
+    background: #aaaaaa;
+    border-color: #fff;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.slot-icon {
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
+.slot-label {
+    font-size: 8px;
+    color: #ddd;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.slot-key {
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    font-size: 8px;
+    color: #aaa;
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Minecraft Sections */
+.mc-section {
+    display: none;
+    padding: 40px 20px;
+    min-height: calc(100vh - 120px);
+}
+
+.mc-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.mc-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+.mc-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000;
+}
+
+.title-icon {
+    font-size: 24px;
+}
+
+.mc-subtitle {
+    text-align: center;
+    color: #ddd;
+    font-size: 18px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 0 #000;
+}
+
+/* Player Card */
+.mc-home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 160px);
+}
+
+.mc-player-card {
+    display: flex;
+    gap: 30px;
+    background: #373737;
+    border: 4px solid #1a1a1a;
+    padding: 30px;
+    box-shadow: 
+        inset 0 0 0 2px #555,
+        0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.mc-avatar {
+    width: 120px;
+    height: 120px;
+    background: #8B8B8B;
+    border: 3px solid #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    image-rendering: pixelated;
+}
+
+.mc-skin {
+    width: 80px;
+    height: 80px;
+    background: 
+        linear-gradient(180deg, 
+            #8B4513 0%, #8B4513 20%, 
+            #FFD700 20%, #FFD700 40%,
+            #4169E1 40%, #4169E1 70%,
+            #8B4513 70%, #8B4513 100%);
+    image-rendering: pixelated;
+}
+
+.mc-player-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mc-name {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    color: #55FF55;
+    text-shadow: 2px 2px 0 #000;
+    margin-bottom: 10px;
+}
+
+.mc-tagline {
+    color: #FFAA00;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.mc-stats {
+    display: flex;
+    gap: 20px;
+}
+
+.mc-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #2a2a2a;
+    padding: 10px 20px;
+    border: 2px solid #555;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #aaa;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    color: #55FF55;
+}
+
+/* XP Bar */
+.mc-xp-bar {
+    width: 400px;
+    max-width: 90%;
+    height: 20px;
+    background: #373737;
+    border: 2px solid #1a1a1a;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mc-xp-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00AA00, #55FF55);
+    transition: width 1s ease;
+    box-shadow: 0 0 10px #55FF55;
+}
+
+.mc-xp-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
+    white-space: nowrap;
+}
+
+/* Enchantment Table */
+.mc-enchant-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.enchant-bookshelf {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 20px;
+}
+
+.bookshelf-row {
+    display: flex;
+    gap: 4px;
+}
+
+.book {
+    width: 40px;
+    height: 50px;
+    background: #8B4513;
+    border: 2px solid #5C3317;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    animation: bookFloat 3s ease-in-out infinite;
+}
+
+.book:nth-child(2) { animation-delay: 0.5s; }
+.book:nth-child(3) { animation-delay: 1s; }
+.book:nth-child(4) { animation-delay: 1.5s; }
+.book:nth-child(5) { animation-delay: 2s; }
+
+@keyframes bookFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.enchant-table-top {
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(180deg, #555 0%, #333 100%);
+    border: 3px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.enchant-pedestal {
+    width: 150px;
+    height: 60px;
+    background: #2a2a2a;
+    border: 2px solid #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.enchant-glyphs {
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    color: #55FF55;
+    text-shadow: 0 0 10px #55FF55;
+    animation: glyphScroll 5s linear infinite;
+    white-space: nowrap;
+}
+
+@keyframes glyphScroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.skill-slots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.enchant-slot {
+    width: 160px;
+    height: 120px;
+    background: #373737;
+    border: 3px solid #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.enchant-slot:hover {
+    background: #474747;
+    border-color: #55FF55;
+    transform: scale(1.05);
+}
+
+.enchant-slot:hover .slot-glow {
+    opacity: 1;
+}
+
+.slot-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(85, 255, 85, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.skill-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.skill-name {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
+    margin-bottom: 4px;
+}
+
+.skill-level {
+    font-size: 14px;
+    color: #55FF55;
+}
+
+/* Chest */
+.mc-chest {
+    max-width: 600px;
+    margin: 0 auto;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.chest-lid {
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(180deg, #8B6914 0%, #6B4F12 100%);
+    border: 3px solid #3D2B07;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: top;
+    transition: transform 0.5s ease;
+    position: relative;
+}
+
+.chest-lid.open {
+    transform: rotateX(-60deg);
+}
+
+.chest-lock {
+    width: 20px;
+    height: 20px;
+    background: #FFD700;
+    border: 2px solid #B8860B;
+    border-radius: 3px;
+}
+
+.chest-body {
+    width: 100%;
+    background: linear-gradient(180deg, #A0782C 0%, #8B6914 100%);
+    border: 3px solid #3D2B07;
+    padding: 16px;
+    opacity: 0.7;
+    transition: opacity 0.5s ease;
+}
+
+.chest-body.open {
+    opacity: 1;
+}
+
+.chest-inventory {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.chest-slot {
+    height: 100px;
+    background: #2a2a2a;
+    border: 2px solid #555;
+    border-top-color: #333;
+    border-left-color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.chest-slot:hover {
+    background: #3a3a3a;
+    border-color: #FFD700;
+    transform: scale(1.05);
+}
+
+.chest-slot:hover .slot-glow {
+    opacity: 1;
+}
+
+.item-icon {
+    font-size: 28px;
+    margin-bottom: 4px;
+}
+
+.item-name {
+    font-size: 11px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.item-desc {
+    font-size: 10px;
+    color: #aaa;
+}
+
+/* Modal */
+.mc-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    animation: fadeIn 0.3s ease;
+}
+
+.mc-modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #373737;
+    border: 4px solid #1a1a1a;
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-icon {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.modal-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 12px;
+    color: #55FF55;
+}
+
+.modal-desc {
+    text-align: center;
+    margin-bottom: 16px;
+    color: #ddd;
+}
+
+.modal-tags {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.modal-tags span {
+    background: #2a2a2a;
+    padding: 4px 12px;
+    border: 1px solid #555;
+    font-size: 14px;
+}
+
+.modal-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    background: #55FF55;
+    color: #000;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    transition: background 0.2s;
+}
+
+.modal-link:hover {
+    background: #77FF77;
+}
+
+/* Written Book */
+.mc-written-book {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #DEB887;
+    border: 3px solid #8B4513;
+    padding: 40px;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+.page-content {
+    color: #1a1a1a;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.page-content h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.page-content p {
+    margin-bottom: 12px;
+}
+
+.book-divider {
+    text-align: center;
+    margin: 20px 0;
+    color: #8B4513;
+}
+
+/* Ender Portal */
+.mc-ender-portal {
+    display: flex;
+    justify-content: center;
+    padding: 60px 0;
+}
+
+.portal-frame {
+    width: 300px;
+    height: 400px;
+    background: #1a1a1a;
+    border: 8px solid #333;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portal-swirl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 30%, #7B00FF 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, #9B30FF 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, #4B0082 0%, transparent 70%);
+    animation: portalSwirl 3s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes portalSwirl {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+.portal-center {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #7B00FF;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.contact-link:hover {
+    background: rgba(123, 0, 255, 0.3);
+    border-color: #9B30FF;
+    transform: scale(1.05);
+}
+
+.contact-icon {
+    font-size: 24px;
+}
+
+/* ============================================
+   GTA 6 THEME
+   ============================================ */
+#gta-theme {
+    background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #0f1923 100%);
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+.gta-pause-menu {
+    min-height: calc(100vh - 60px);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.gta-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.gta-logo {
+    margin-bottom: 10px;
+}
+
+.gta-vi {
+    font-family: 'Arial', sans-serif;
+    font-size: 72px;
+    font-weight: 900;
+    font-style: italic;
+    background: linear-gradient(180deg, #FF6B9D 0%, #C44569 50%, #FF6B9D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    filter: drop-shadow(0 4px 8px rgba(255, 107, 157, 0.5));
+}
+
+.gta-title {
+    font-size: 24px;
+    letter-spacing: 8px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/* GTA Navigation */
+.gta-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 400px;
+    margin: 0 auto 40px;
+}
+
+.gta-nav-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: transparent;
+    border: none;
+    border-left: 3px solid transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    letter-spacing: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+}
+
+.gta-nav-item:hover {
+    color: #fff;
+    border-left-color: #FF6B9D;
+    background: rgba(255, 107, 157, 0.1);
+}
+
+.gta-nav-item.active {
+    color: #FF6B9D;
+    border-left-color: #FF6B9D;
+    background: rgba(255, 107, 157, 0.15);
+}
+
+.gta-nav-arrow {
+    font-size: 24px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.gta-nav-item:hover .gta-nav-arrow,
+.gta-nav-item.active .gta-nav-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* GTA Sections */
+.gta-section {
+    display: none;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: gtaSlideIn 0.4s ease;
+}
+
+.gta-section.active {
+    display: block;
+}
+
+@keyframes gtaSlideIn {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.gta-content {
+    padding: 40px;
+}
+
+.gta-section-title {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    color: #FF6B9D;
+    text-transform: uppercase;
+}
+
+/* GTA Player Card */
+.gta-player-card {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.gta-portrait {
+    flex-shrink: 0;
+}
+
+.gta-portrait-frame {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%);
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.gta-portrait-letter {
+    font-size: 72px;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.gta-player-name {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+}
+
+.gta-player-tagline {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.gta-wanted-stars {
+    margin-bottom: 16px;
+}
+
+.gta-wanted-stars .star {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.gta-wanted-stars .star.filled {
+    color: #FFD700;
+    text-shadow: 0 0 10px #FFD700;
+}
+
+.gta-location {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 2px;
+}
+
+/* GTA Skills */
+.gta-skill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.gta-skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 16px;
+    transition: all 0.3s ease;
+}
+
+.gta-skill-card:hover {
+    background: rgba(255, 107, 157, 0.1);
+    border-color: #FF6B9D;
+    transform: translateX(5px);
+}
+
+.gta-skill-bar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.gta-skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #FF6B9D, #C44569);
+    transition: width 1s ease;
+}
+
+.gta-skill-name {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+.gta-skill-level {
+    font-size: 12px;
+    color: #FF6B9D;
+}
+
+/* GTA Missions */
+.gta-missions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.gta-mission {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.gta-mission:hover {
+    background: rgba(255, 107, 157, 0.1);
+    border-color: #FF6B9D;
+    transform: translateX(5px);
+}
+
+.mission-status {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.mission-status.complete {
+    background: #4CAF50;
+    color: #fff;
+}
+
+.mission-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.mission-info p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 4px;
+}
+
+.mission-reward {
+    font-size: 12px;
+    color: #FFD700;
+    font-weight: 700;
+}
+
+/* GTA Dossier */
+.gta-dossier {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 24px;
+}
+
+.dossier-field {
+    display: flex;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dossier-field:last-child {
+    border-bottom: none;
+}
+
+.dossier-label {
+    width: 150px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+    flex-shrink: 0;
+}
+
+.dossier-value {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.active-status {
+    color: #4CAF50;
+}
+
+/* GTA Contacts */
+.gta-contacts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.gta-contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.gta-contact-card:hover {
+    background: rgba(255, 107, 157, 0.15);
+    border-color: #FF6B9D;
+    transform: translateY(-5px);
+}
+
+.gta-contact-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.gta-contact-name {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+.gta-contact-detail {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* GTA Stats Bar */
+.gta-stats-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+    padding: 16px 40px;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.gta-stat-item {
+    text-align: right;
+}
+
+.gta-stat-label {
+    display: block;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+.gta-stat-value {
+    font-size: 18px;
+    font-weight: 900;
+    color: #FFD700;
+}
+
+.gta-wanted-mini {
+    font-size: 18px;
+    color: #FFD700;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .mc-player-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .mc-stats {
+        justify-content: center;
+    }
+
+    .skill-slots {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chest-inventory {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hotbar-slot {
+        width: 50px;
+        height: 50px;
+    }
+
+    .slot-label {
+        display: none;
+    }
+
+    .gta-player-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .gta-skill-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gta-contacts {
+        grid-template-columns: 1fr;
+    }
+
+    .gta-stats-bar {
+        gap: 20px;
+        padding: 12px 20px;
+    }
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
