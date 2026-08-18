@@ -89,11 +89,25 @@ const modalLink = document.getElementById('modal-link');
 const modalClose = document.querySelector('.modal-close');
 
 const projects = {
+    'va-metasploitable': {
+        icon: '🛡️',
+        name: 'Vulnerability Assessment — Metasploitable',
+        desc: 'Conducted VA using Nessus Scanner, identified 122 vulnerabilities: 7 Critical, 4 High, 15 Medium. Documented critical findings with CVSS scoring including VNC weak password (10.0), UnrealIRCd backdoor (CVE-2010-2075), phpMyAdmin SQLi (CVE-2019-11768), OpenSSL RNG weakness (CVE-2008-0166).',
+        tags: ['Nessus', 'CVSS Scoring', 'VA Report', 'Feb 2026'],
+        url: 'https://github.com/partha442004/Cybersecurity-Projects/blob/main/Vulnerability_Assessment_Report.pdf'
+    },
+    'pt-metasploitable': {
+        icon: '⚔️',
+        name: 'Penetration Testing — Metasploitable 2',
+        desc: 'Performed reconnaissance using Nmap (-sV -A), identified 7 open ports. Exploited bindshell on port 1524 using Netcat, gained unauthenticated root access. Identified 5 vulnerabilities: 3 Critical (Bindshell, vsftpd backdoor CVE-2011-2523, UnrealIRCd), 2 High (Samba RCE CVE-2007-2447, Tomcat defaults).',
+        tags: ['Nmap', 'Metasploit', 'Root Shell', 'May 2026'],
+        url: 'https://github.com/partha442004/Cybersecurity-Projects/blob/main/Pentest_Report_Filled.pdf'
+    },
     'cyberguide': {
         icon: '🤖',
         name: 'CyberGuide',
         desc: 'Career Intelligence Platform: 17+ scrapers, AI job matching, 2040 tests at 99% coverage. Deployed on Vercel + Neon.',
-        tags: ['Python', 'Docker', 'Kubernetes', 'PostgreSQL', 'AI', 'MIT License'],
+        tags: ['Python', 'AI', 'Web Scraping', 'MIT License'],
         url: 'https://github.com/partha442004/CyberGuide'
     },
     'web-attack': {
@@ -107,15 +121,8 @@ const projects = {
         icon: '📍',
         name: 'osint-locator',
         desc: 'OSINT location intelligence tool for gathering geographic data.',
-        tags: ['Python', 'OSINT', 'Intelligence'],
+        tags: ['Python', 'OSINT'],
         url: 'https://github.com/partha442004/osint-locator'
-    },
-    'gaming-bot': {
-        icon: '🎮',
-        name: 'gaming-discord-bot',
-        desc: 'Gaming Discord bot for server management.',
-        tags: ['JavaScript', 'Discord', 'Gaming'],
-        url: 'https://github.com/partha442004/gaming-discord-bot'
     },
     'cyber-projects': {
         icon: '🔐',
@@ -123,13 +130,6 @@ const projects = {
         desc: 'VAPT Reports, Penetration Testing, and Cybersecurity Projects collection.',
         tags: ['Cybersecurity', 'VAPT', 'Pentesting'],
         url: 'https://github.com/partha442004/Cybersecurity-Projects'
-    },
-    'profile': {
-        icon: '👤',
-        name: 'partha442004',
-        desc: 'Parthasarathi B — Cybersecurity & AI portfolio profile README.',
-        tags: ['Profile', 'README', 'GitHub'],
-        url: 'https://github.com/partha442004'
     }
 };
 
@@ -291,5 +291,6 @@ mcChest?.addEventListener('click', (e) => {
 // CONSOLE EASTER EGG
 // ============================================
 console.log('%c🎮 Portfolio by Parthasarathi B', 'font-size: 20px; font-weight: bold; color: #55FF55;');
-console.log('%cCybersecurity & AI Explorer 🛡️', 'font-size: 14px; color: #FFAA00;');
+console.log('%cCybersecurity • VAPT • SOC 🛡️', 'font-size: 14px; color: #FFAA00;');
 console.log('%cGitHub: https://github.com/partha442004', 'font-size: 12px; color: #87CEEB;');
+console.log('%cTryHackMe: https://tryhackme.com/p/parthasarathi442', 'font-size: 12px; color: #FF6B9D;');
