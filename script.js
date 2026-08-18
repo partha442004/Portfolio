@@ -288,6 +288,179 @@ mcChest?.addEventListener('click', (e) => {
 });
 
 // ============================================
+// SCROLL PROGRESS BAR
+// ============================================
+const scrollProgress = document.getElementById('scroll-progress');
+
+window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+    scrollProgress.style.width = progress + '%';
+});
+
+// ============================================
+// TYPING ANIMATION
+// ============================================
+const typingElement = document.getElementById('typing-tagline');
+const phrases = [
+    'Cybersecurity',
+    'Vulnerability Assessment',
+    'Penetration Testing',
+    'SOC Analyst',
+    '127+ Vulnerabilities Found',
+    'CEH v13 Certified'
+];
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typingSpeed = 100;
+
+function typeEffect() {
+    if (!typingElement) return;
+    
+    const currentPhrase = phrases[phraseIndex];
+    
+    if (isDeleting) {
+        typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 50;
+    } else {
+        typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 100;
+    }
+    
+    if (!isDeleting && charIndex === currentPhrase.length) {
+        isDeleting = true;
+        typingSpeed = 2000; // Pause at end
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typingSpeed = 500; // Pause before next phrase
+    }
+    
+    setTimeout(typeEffect, typingSpeed);
+}
+
+setTimeout(typeEffect, 1000);
+
+// ============================================
+// MATRIX RAIN (GTA THEME)
+// ============================================
+const matrixCanvas = document.getElementById('matrix-canvas');
+const ctx = matrixCanvas?.getContext('2d');
+
+function initMatrix() {
+    if (!matrixCanvas || !ctx) return;
+    
+    matrixCanvas.width = window.innerWidth;
+    matrixCanvas.height = window.innerHeight;
+    
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+-=[]{}|;:,.<>?';
+    const fontSize = 14;
+    const columns = matrixCanvas.width / fontSize;
+    const drops = [];
+    
+    for (let x = 0; x < columns; x++) {
+        drops[x] = 1;
+    }
+    
+    function drawMatrix() {
+        if (!gtaTheme.classList.contains('active')) {
+            ctx.clearRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+            return;
+        }
+        
+        ctx.fillStyle = 'rgba(26, 10, 46, 0.05)';
+        ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+        
+        ctx.fillStyle = '#FF6B9D';
+        ctx.font = fontSize + 'px monospace';
+        
+        for (let i = 0; i < drops.length; i++) {
+            const text = chars.charAt(Math.floor(Math.random() * chars.length));
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            
+            if (drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            
+            drops[i]++;
+        }
+        
+        requestAnimationFrame(drawMatrix);
+    }
+    
+    drawMatrix();
+}
+
+initMatrix();
+
+window.addEventListener('resize', () => {
+    if (matrixCanvas) {
+        matrixCanvas.width = window.innerWidth;
+        matrixCanvas.height = window.innerHeight;
+    }
+});
+
+// ============================================
+// ACHIEVEMENT POPUPS
+// ============================================
+function showAchievement(icon, label, title) {
+    const popup = document.createElement('div');
+    popup.className = 'achievement-popup';
+    popup.innerHTML = `
+        <span class="achievement-icon">${icon}</span>
+        <div class="achievement-text">
+            <span class="achievement-label">${label}</span>
+            <span class="achievement-title">${title}</span>
+        </div>
+    `;
+    document.body.appendChild(popup);
+    
+    setTimeout(() => {
+        popup.remove();
+    }, 4000);
+}
+
+// Show achievements on section visits
+let achievementsShown = {};
+
+function checkAchievements(sectionId) {
+    if (achievementsShown[sectionId]) return;
+    achievementsShown[sectionId] = true;
+    
+    switch(sectionId) {
+        case 'skills':
+            setTimeout(() => showAchievement('⚔️', 'Achievement Unlocked!', 'Skill Master - 9 Security Tools'), 500);
+            break;
+        case 'projects':
+            setTimeout(() => showAchievement('🛡️', 'Achievement Unlocked!', 'Bug Hunter - 127+ Vulns Found'), 500);
+            break;
+        case 'about':
+            setTimeout(() => showAchievement('🎓', 'Achievement Unlocked!', 'Scholar - CEH v13 Certified'), 500);
+            break;
+    }
+}
+
+// Watch for section changes
+const sectionObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+            const target = mutation.target;
+            if (target.classList.contains('mc-section') && target.classList.contains('active')) {
+                checkAchievements(target.id.replace('mc-', ''));
+            }
+        }
+    });
+});
+
+document.querySelectorAll('.mc-section').forEach(section => {
+    sectionObserver.observe(section, { attributes: true });
+});
+
+// ============================================
 // CONSOLE EASTER EGG
 // ============================================
 console.log('%c🎮 Portfolio by Parthasarathi B', 'font-size: 20px; font-weight: bold; color: #55FF55;');

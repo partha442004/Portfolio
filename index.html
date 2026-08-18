@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+    
+    <!-- Matrix Rain Canvas (GTA Theme) -->
+    <canvas id="matrix-canvas"></canvas>
+    
+    <!-- Parallax Background -->
+    <div class="parallax-bg"></div>
+<body>
     <!-- Theme Switcher -->
     <div id="theme-switcher">
         <button id="btn-minecraft" class="theme-btn active" title="Minecraft Theme">
@@ -62,8 +71,8 @@
                         <div class="mc-skin"></div>
                     </div>
                     <div class="mc-player-info">
-                        <h1 class="mc-name">Parthasarathi B</h1>
-                        <p class="mc-tagline">"Cybersecurity • VAPT • SOC" 🛡️</p>
+                        <h1 class="mc-name glitch" data-text="Parthasarathi B">Parthasarathi B</h1>
+                        <p class="mc-tagline">"<span class="typing-text" id="typing-tagline"></span>" 🛡️</p>
                         <div class="mc-stats">
                             <div class="mc-stat">
                                 <span class="stat-label">Vulns Found</span>
@@ -127,54 +136,63 @@
                             <span class="skill-icon">🔍</span>
                             <span class="skill-name">Vulnerability Assessment</span>
                             <span class="skill-level">Level X</span>
+                            <div class="durability-bar"><div class="durability-fill" style="width: 100%"></div></div>
                         </div>
                         <div class="enchant-slot" data-skill="pentesting" data-level="10">
                             <div class="slot-glow"></div>
                             <span class="skill-icon">⚔️</span>
                             <span class="skill-name">Penetration Testing</span>
                             <span class="skill-level">Level X</span>
+                            <div class="durability-bar"><div class="durability-fill" style="width: 100%"></div></div>
                         </div>
                         <div class="enchant-slot" data-skill="nessus" data-level="9">
                             <div class="slot-glow"></div>
                             <span class="skill-icon">📡</span>
                             <span class="skill-name">Nessus</span>
                             <span class="skill-level">Level IX</span>
+                            <div class="durability-bar"><div class="durability-fill" style="width: 90%"></div></div>
                         </div>
                         <div class="enchant-slot" data-skill="metasploit" data-level="9">
                             <div class="slot-glow"></div>
                             <span class="skill-icon">💀</span>
                             <span class="skill-name">Metasploit</span>
                             <span class="skill-level">Level IX</span>
+                            <div class="durability-bar"><div class="durability-fill" style="width: 90%"></div></div>
                         </div>
                         <div class="enchant-slot" data-skill="burpsuite" data-level="9">
                             <div class="slot-glow"></div>
                             <span class="skill-icon">🕷️</span>
                             <span class="skill-name">Burp Suite</span>
                             <span class="skill-level">Level IX</span>
+                            <div class="durability-bar"><div class="durability-fill" style="width: 90%"></div></div>
                         </div>
                         <div class="enchant-slot" data-skill="nmap" data-level="10">
                             <div class="slot-glow"></div>
                             <span class="skill-icon">🗺️</span>
                             <span class="skill-name">Nmap</span>
                             <span class="skill-level">Level X</span>
+                            <div class="durability-bar"><div class="durability-fill" style="width: 100%"></div></div>
                         </div>
                         <div class="enchant-slot" data-skill="wireshark" data-level="8">
                             <div class="slot-glow"></div>
                             <span class="skill-icon">🦈</span>
                             <span class="skill-name">Wireshark</span>
                             <span class="skill-level">Level VIII</span>
+                            <div class="durability-bar"><div class="durability-fill" style="width: 80%"></div></div>
                         </div>
                         <div class="enchant-slot" data-skill="kali" data-level="9">
                             <div class="slot-glow"></div>
                             <span class="skill-icon">🐉</span>
                             <span class="skill-name">Kali Linux</span>
                             <span class="skill-level">Level IX</span>
+                            <div class="durability-bar"><div class="durability-fill" style="width: 90%"></div></div>
                         </div>
                         <div class="enchant-slot" data-skill="owasp" data-level="9">
                             <div class="slot-glow"></div>
                             <span class="skill-icon">🌐</span>
                             <span class="skill-name">OWASP Top 10</span>
                             <span class="skill-level">Level IX</span>
+                            <div class="durability-bar"><div class="durability-fill" style="width: 90%"></div></div>
                         </div>
                     </div>
                 </div>
@@ -360,10 +378,15 @@
             <div id="gta-home" class="gta-section active">
                 <div class="gta-content">
                     <div class="gta-player-card">
-                        <div class="gta-portrait">
-                            <div class="gta-portrait-frame">
-                                <span class="gta-portrait-letter">P</span>
+                        <div class="gta-mugshot">
+                            <div class="gta-mugshot-lines">
+                                <div class="gta-mugshot-line"></div>
+                                <div class="gta-mugshot-line"></div>
+                                <div class="gta-mugshot-line"></div>
+                                <div class="gta-mugshot-line"></div>
                             </div>
+                            <span class="gta-mugshot-initials">PB</span>
+                            <span class="gta-mugshot-number">#127VULNS</span>
                         </div>
                         <div class="gta-player-details">
                             <h1 class="gta-player-name">PARTHASARATHI B</h1>
